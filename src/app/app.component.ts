@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
+import { MatSidenav } from '@angular/material'
 import { ICurrentWeather } from './interfaces'
 import { WeatherService } from './weather/weather.service'
 
@@ -8,8 +9,17 @@ import { WeatherService } from './weather/weather.service'
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'le soleil'
+  title = 'Weather Finder'
   currentWeather: ICurrentWeather
+  @ViewChild('sidenav')
+  sidenav: MatSidenav
+
+  reason = ''
+
+  close(reason: string) {
+    this.reason = reason
+    this.sidenav.close()
+  }
 
   constructor(private weatherService: WeatherService) {}
 
