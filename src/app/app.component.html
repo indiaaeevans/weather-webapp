@@ -1,19 +1,27 @@
 <mat-toolbar color="primary">
-  <button mat-button (click)="sidenav.open()">
+  <button mat-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
   {{ title }}
 
 </mat-toolbar>
 
-<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+<mat-sidenav-container (backdropClick)="close('backdrop')">
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-    <p><button mat-button (click)="close('toggle button')">Close</button></p>
+    <div class="default-city">
+      <h4>Default City</h4>
+      <br>
+      <button mat-raised-button color="primary">Save</button>
+    </div>
+    <button mat-button (click)="close('toggle button')">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-sidenav>
 
-  <mat-sidenav-content class="example-sidenav-content">
+  <mat-sidenav-content>
 
     <app-city-search (searchEvent)="doSearch($event)"></app-city-search>
+
     <mat-card>
       <mat-card-header>
         <mat-card-title>
@@ -21,6 +29,15 @@
         </mat-card-title>
       </mat-card-header>
       <app-current-weather [current]="currentWeather"></app-current-weather>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h2>5 Day Forecast</h2>
+        </mat-card-title>
+      </mat-card-header>
+      FORECAST HERE
     </mat-card>
   </mat-sidenav-content>
 </mat-sidenav-container>

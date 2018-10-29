@@ -1,0 +1,23 @@
+.current-weather-img {
+  width: 100px;
+  height: 100px;
+}
+
+.city-and-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.image-and-temp {
+  font-size: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.description {
+  text-align: center;
+  font-size: 24px;
+}
